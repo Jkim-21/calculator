@@ -81,6 +81,7 @@ body {
     flex: 3.5;
     background-color: #FF5F1F;
     color: white;
+    box-shadow: 0 5px 0 rgba(255, 95, 31, 0.8);
 }
 
 .words {
@@ -94,7 +95,28 @@ button {
     background-color: black;
     color: white;
     border: none;
-    background-color: rgba(237, 231, 225, 0.1);
+    background-color: rgba(237, 231, 225, 0.3);
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.015s linear;
+    box-shadow: 0 5px 0 rgba(237, 231, 225, 0.2);;
+}
+
+button:hover {
+    background-color: rgba(239, 239, 240, 0.4);
+}
+
+button:active {
+    background-color: rgba(239, 239, 240, 0.2);
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+#equals:hover {
+    background-color: rgb(251, 109, 52);
+}
+
+#equals:active{
+    box-shadow: none;
+    background-color: rgba(255, 95, 31, 0.8);
 }
