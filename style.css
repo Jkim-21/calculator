@@ -12,6 +12,7 @@ html {
 
 body {
     background-color: lightgrey;
+    color: white;
 }
 
 .calculator-container {
@@ -77,17 +78,25 @@ body {
     flex: 1;
 }
 
-#equals {
+.clear-equals .equals {
     flex: 3.5;
     background-color: #FF5F1F;
     color: white;
     box-shadow: 0 5px 0 rgba(255, 95, 31, 0.8);
 }
 
+.equals:hover {
+    background-color: rgb(251, 109, 52);
+}
+
+.equals:active{
+    box-shadow: none;
+    background-color: rgba(255, 95, 31, 0.8);
+}
+
 .words {
     font-size: 1.1rem;
 }
-
 
 button {
     width: 25%;
@@ -112,11 +121,3 @@ button:active {
     transform: translateY(5px);
 }
 
-#equals:hover {
-    background-color: rgb(251, 109, 52);
-}
-
-#equals:active{
-    box-shadow: none;
-    background-color: rgba(255, 95, 31, 0.8);
-}

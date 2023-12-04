@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "style.css">
-    <script src = "script.js defer"></script>
+    <script src = "script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,39 +14,40 @@
 <body>
     <div class = "calculator-container">
         <div class = "display">
-            <div class = "operations">
+            <div class = "previous-operand">
             </div>
-            <div class = "result">
+            <div class = "current-operand">
+                0
             </div>
         </div>
         <div class = "numbers-operations">
             <div class = "numbers">
-                <button type = "button">7</button>
-                <button type = "button">8</button>
-                <button type = "button">9</button>
+                <button type = "button" class = "number">7</button>
+                <button type = "button" class = "number">8</button>
+                <button type = "button" class = "number">9</button>
 
-                <button type = "button">4</button>
-                <button type = "button">5</button>
-                <button type = "button">6</button>
+                <button type = "button" class = "number">4</button>
+                <button type = "button" class = "number">5</button>
+                <button type = "button" class = "number">6</button>
 
-                <button type = "button">1</button>
-                <button type = "button">2</button>
-                <button type = "button">3</button>
+                <button type = "button" class = "number">1</button>
+                <button type = "button" class = "number">2</button>
+                <button type = "button" class = "number">3</button>
 
-                <button type = "button">0</button>
-                <button type = "button">.</button>
-                <button type = "button" class = "words">DEL</button>
+                <button type = "button" class = "number">0</button>
+                <button type = "button" class = "number">.</button>
+                <button type = "button" class = "words delete">DEL</button>
             </div>
             <div class = "symbols">
                 <div class = "operations">
-                    <button type = "button">&divide;</button>
-                    <button type = "button">&times;</button>
-                    <button type = "button">&minus;</button>
-                    <button type = "button">&plus;</button>
+                    <button type = "button" class = "operation">&divide;</button>
+                    <button type = "button" class = "operation">&times;</button>
+                    <button type = "button" class = "operation">&minus;</button>
+                    <button type = "button" class = "operation">&plus;</button>
                 </div>
                 <div class = "clear-equals">
-                    <button type = "button" class = "words">CLEAR</button>
-                    <button type = "button" id = "equals">&equals;</button>
+                    <button type = "button" class = "words clear">CLEAR</button>
+                    <button type = "button" class = equals>&equals;</button>
                 </div>
             </div>
 
