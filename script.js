@@ -8,7 +8,7 @@ const currentOperandDisplay = document.querySelector(".current-operand");
 
 let currentOperand = "";
 let previousOperand = "";
-let currentOperation = undefined;
+let currentOperation = null;
 
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", () => {
@@ -22,6 +22,10 @@ operationButtons.forEach(operationButton => {
     });
 });
 
+equalsButton.addEventListener("click", () => {
+    compute();
+    
+});
 
 function appendNumber(number) {
     if (currentOperandDisplay.textContent === "0") {
@@ -32,22 +36,51 @@ function appendNumber(number) {
 }
 
 function selectOperation(operation) {
-    if (currentOperand !== "" && currentOperation === undefined) {
-        previousOperand = currentOperand;
-        currentOperation = operation;
-
-        previousOperandDisplay.textContent += `${currentOperand} ${operation}`;
-
-        currentOperand = "";
-        compute();
-    }
-}
-
-function compute() {
-    if (currentOperand === undefined) {
+    if (currentOperand === "") {
         return;
     }
 
+    if (currentOperation !== null) {
+        compute();
+    }
+    
+    if (previousOperandDisplay.textContent.trim() === "") {
+        previousOperandDisplay.textContent += `${currentOperand}`;
+    }
+    previousOperand = currentOperandDisplay.textContent;
+    currentOperation = operation;
+    currentOperand = "";
+}
+
+function compute() {
+    if (currentOperand === "" || currentOperation == null) {
+        return;
+    }
+
+    previousOperandDisplay.textContent += ` ${currentOperation} ${currentOperand}`;
+
+    let result = null;
+    let previousOperandFloat = parseFloat(previousOperand);
+    let currentOperandFloat = parseFloat(currentOperand);
+
+    switch(currentOperation) {
+        case "+":
+            result = previousOperandFloat + currentOperandFloat;
+            break;
+        case "−":
+            result = previousOperandFloat - currentOperandFloat;
+            break;
+        case "×":
+            result = previousOperandFloat * currentOperandFloat;
+            break;
+        case "÷":
+            result = previousOperandFloat / currentOperandFloat;
+            break;
+        default:
+            break;
+    }
+    currentOperandDisplay.textContent = result;
+    currentOperation = null;
 }
 
 function add(num1, num2) {
