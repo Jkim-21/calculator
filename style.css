@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* outline: 1px dotted red; */
+    font-family: "Poppins", Helvetica, sans-serif;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+.calculator-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: black;
+    width: 25rem;
+    height: 30rem;
+    border-radius: 10px;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    border: 2px solid white;
+    height: 30%;
+    margin-bottom: 10%;
+}
+
+.numbers-operations {
+    border: 2px solid white;
+    flex-grow: 1;
+    padding-left: 1.2rem;
+    display: flex;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 60%;
+    column-gap: 5%;
+    row-gap: 5%;
+}
+
+.symbols{
+    flex-basis: 40%;
+    display: flex;
+
+}
+
+.operations {
+    display: flex;
+    flex-basis: 50%;
+    flex-wrap: wrap;
+    row-gap: 5%;
+}
+
+.symbols button {
+    width: 80%;
+    color: #D3D3D3;
+}
+
+.clear-equals {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column; 
+    gap: 5%;
+}
+
+.clear-equals .words {
+    flex: 1;
+}
+
+#equals {
+    flex: 3.5;
+    background-color: #FF5F1F;
+    color: white;
+}
+
+.words {
+    font-size: 1.1rem;
+}
+
+
+button {
+    width: 25%;
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    background-color: rgba(237, 231, 225, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+}
