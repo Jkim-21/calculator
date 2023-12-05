@@ -5,6 +5,7 @@ const clearButton = document.querySelector(".clear");
 const equalsButton = document.querySelector(".equals");
 const previousOperandDisplay = document.querySelector(".previous-operand");
 const currentOperandDisplay = document.querySelector(".current-operand");
+const decimalButton = document.querySelector(".decimal");
 
 let currentOperand = "";
 let previousOperand = "";
@@ -24,22 +25,34 @@ operationButtons.forEach(operationButton => {
 
 equalsButton.addEventListener("click", () => {
     compute();
-    
+});
+clearButton.addEventListener("click", () => {
+    clear();
+});
+deleteButton.addEventListener("click", () => {
+    deletion();
+});
+decimalButton.addEventListener("click", () => {
+    appendDecimal();
 });
 
 function appendNumber(number) {
-    if (currentOperandDisplay.textContent === "0") {
-        currentOperand = "";
+    if (currentOperandDisplay.textContent === "0" || (previousOperand === "" && previousOperandDisplay.textContent.trim() !== "")) {
+        clear();
+    }
+    if (number === ".") {
+        if (currentOperand === "") {
+            currentOperand += "0";
+        }
+        if (currentOperand.includes(".")) {
+            return;
+        }
     }
     currentOperand += number;
     currentOperandDisplay.textContent = currentOperand;
 }
 
 function selectOperation(operation) {
-    if (currentOperand === "") {
-        return;
-    }
-
     if (currentOperation !== null) {
         compute();
     }
@@ -79,26 +92,21 @@ function compute() {
         default:
             break;
     }
-    currentOperandDisplay.textContent = result;
+    const roundResult = (value) => Math.round(value * 10000) / 10000;
+    currentOperandDisplay.textContent = roundResult(result);
     currentOperation = null;
+    currentOperand = result;
+    previousOperand = "";
 }
 
-function add(num1, num2) {
-    return num1 + num2;
+function clear() {
+    currentOperand = "";
+    previousOperand = "";
+    currentOperandDisplay.textContent = "0";
+    previousOperandDisplay.textContent = previousOperand;
 }
 
-function subtract(num1, num2) {
-    return num1 - num2;
-}
-
-function multiply(num1, num2) {
-    return num1 * num2;
-}
-
-function divide(num1, num2) {
-    return num1 / num2;
-}
-
-function operator(num1, num2, operator) {
-
+function deletion() {
+    currentOperand = currentOperand.slice(0, -1);
+    currentOperandDisplay.textContent = currentOperand;
 }
