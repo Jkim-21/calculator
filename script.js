@@ -23,18 +23,10 @@ operationButtons.forEach(operationButton => {
     });
 });
 
-equalsButton.addEventListener("click", () => {
-    compute();
-});
-clearButton.addEventListener("click", () => {
-    clear();
-});
-deleteButton.addEventListener("click", () => {
-    deletion();
-});
-decimalButton.addEventListener("click", () => {
-    appendDecimal();
-});
+equalsButton.addEventListener("click", compute);
+clearButton.addEventListener("click", clear);
+deleteButton.addEventListener("click", deleteNumber);
+document.addEventListener("keydown", handleKeyboardInput);
 
 function appendNumber(number) {
     if (currentOperandDisplay.textContent === "0" || (previousOperand === "" && previousOperandDisplay.textContent.trim() !== "")) {
@@ -102,11 +94,40 @@ function compute() {
 function clear() {
     currentOperand = "";
     previousOperand = "";
+    currentOperation = null;
     currentOperandDisplay.textContent = "0";
     previousOperandDisplay.textContent = previousOperand;
 }
 
-function deletion() {
+function deleteNumber() {
     currentOperand = currentOperand.slice(0, -1);
     currentOperandDisplay.textContent = currentOperand;
+}
+
+function handleKeyboardInput(e) {
+    if (0 <= e.key && 9 >= e.key || e.key === ".") {
+        appendNumber(e.key);
+    }
+    if (e.key === '+') {
+        selectOperation("+");
+    }
+    if (e.key === "-") {
+        selectOperation("−");
+    }
+    if (e.key === "*") {
+        selectOperation("×");
+    }
+    if (e.key === "/") {
+        selectOperation("÷");
+    }
+    if (e.key === "Backspace") {
+        deleteNumber();
+    }
+    if (e.key === "Enter" || e.key === "=") {
+        e.preventDefault()
+        compute();
+    }
+    if (e.key === "Escape") {
+        clear();
+    }
 }

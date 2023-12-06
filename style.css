@@ -16,8 +16,8 @@ body {
 }
 
 .calculator-container {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     background-color: black;
     width: 25rem;
     height: 30rem;
@@ -28,13 +28,33 @@ body {
 }
 
 .display {
-    border: 2px solid white;
-    height: 30%;
-    margin-bottom: 10%;
+    height: 7.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
+.previous-operand {
+    color: #D3D3D3;
+    margin-top: 0.7rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    text-align: right;
+}
+
+.current-operand {
+    font-size: 3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: right;
+
+}
+
+
 .numbers-operations {
-    border: 2px solid white;
     flex-grow: 1;
     padding-left: 1.2rem;
     display: flex;
@@ -120,4 +140,6 @@ button:active {
     box-shadow: none;
     transform: translateY(5px);
 }
+
+
 
